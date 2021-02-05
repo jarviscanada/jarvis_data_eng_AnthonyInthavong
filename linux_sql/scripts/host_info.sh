@@ -10,8 +10,6 @@ psql_user="$4"
 psql_password="$5"
 
 # parse host hardware specifications
-#save hostname to a variable
-hostname=$(hostname -f)
 
 #save number of CPU to a variable
 lscpu_out=`lscpu`
@@ -31,7 +29,7 @@ vmstat_out=`vmstat -t`
 
 #Hardware
 #data columns
-#id,hostname,cpu_number,cpu_architecture,cpu_model,cpu_mhz,L2_cache,timestamp
+#id,hostname,cpu_number,cpu_architecture,cpu_model,cpu_mhz,L2_cache,total_mem,timestamp
 #id=1      #psql db auto-increment
 hostname=$(hostname -f) #fully qualified hostname
 cpu_number=$(echo "$lscpu_out" | egrep "^CPU\(s\):" | awk '{print $2}' | xargs)
@@ -43,7 +41,8 @@ total_mem=$(echo "$mentotal_out" | egrep "^MemTotal:" | awk '{print $2}' | xargs
 timestamp=$(date -u '+%Y-%m-%d %H:%M:%S')
 
 # construct the INSERT statement
-insert_stmt="INSERT INTO host_info ("$hostname", "$cpu_number", "$cpu_architecture", "$cpu_model", "$cpu_mhz", "$l2_cache", "$total_mem", "$timestamp")"
+insert_stmt="INSERT INTO host_info (hostname, cpu_number, cpu_architecture, cpu_model, cpu_mhz, L2_cache, total_mem, timestamp)
+  VALUES ('$hostname', $cpu_number, '$cpu_architecture', '$cpu_model', $cpu_mhz, $l2_cache, $total_mem, '$timestamp');"
 
 # execute the INSERT statement through psql CLI tool
 export PGPASSWORD="$psql_password"
