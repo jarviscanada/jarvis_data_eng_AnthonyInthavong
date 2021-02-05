@@ -47,4 +47,4 @@ insert_stmt="INSERT INTO host_info ("$hostname", "$cpu_number", "$cpu_architectu
 
 # execute the INSERT statement through psql CLI tool
 export PGPASSWORD="$psql_password"
-psql -h "$psql_host" -p "$psql_host" -U "$psql_user" -d "$db_name" -c "$insert_stmt"
+psql -h "$psql_host" -p "$psql_port" -U "$psql_user" -d "$db_name" -c "$insert_stmt"
