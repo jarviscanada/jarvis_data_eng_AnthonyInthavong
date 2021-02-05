@@ -17,14 +17,6 @@ lscpu_out=`lscpu`
 #save mentotal to a variable
 mentotal_out=`cat /proc/meminfo`
 
-#free disk space in root directory
-df_out=`df -BM /`
-
-# disk statistics
-vm_disk_out=`vmstat -d`
-
-vmstat_out=`vmstat -t`
-
 #note: `xargs` is a trick to remove leading and trailing white spaces
 
 #Hardware
