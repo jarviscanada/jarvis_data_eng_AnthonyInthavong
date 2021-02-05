@@ -9,6 +9,13 @@ db_name="$3"
 psql_user="$4"
 psql_password="$5"
 
+# check if valid arguments
+if [ "$#" -ne 5 ]; then
+  echo "host_info: invalid arguments: require 5 arguments" >&2
+  echo "usage: ./host_info.sh psql_host psql_port db_name psql_user psql_password" >&2
+  exit 1
+fi
+
 # export password for psql instance (environment variable)
 # https://www.postgresql.org/docs/9.1/libpq-envars.html
 export PGPASSWORD="$psql_password"

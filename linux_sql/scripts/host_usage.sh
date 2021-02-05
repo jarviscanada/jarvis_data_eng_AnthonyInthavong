@@ -1,11 +1,20 @@
 #!/bin/bash
 
+# collects usage data and inserts into psql instance
+
 # assign CLI arguments to variables
 psql_host="$1"
 psql_port="$2"
 db_name="$3"
 psql_user="$4"
 psql_password="$5"
+
+# check if valid arguments
+if [ "$#" -ne 5 ]; then
+  echo "host_usage: invalid arguments: require 5 arguments" >&2
+  echo "usage: ./host_usage.sh psql_host psql_port db_name psql_user psql_password" >&2
+  exit 1
+fi
 
 # export password for psql instance (environment variable)
 # https://www.postgresql.org/docs/9.1/libpq-envars.html
@@ -40,7 +49,7 @@ disk_available=$(echo "$df_out" | sed -n 2p | awk '{print $4}' | sed 's/\(\d*\).
 
 # construct the INSERT statement for host_usage
 insert_stmt="INSERT INTO host_usage (timestamp, host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available)
-  VALUES ('$timestamp', '$host_id', '$memory_free', '$cpu_idle', '$cpu_kernel', '$disk_io', '$disk_available');"
+  VALUES ('$timestamp', $host_id, $memory_free, $cpu_idle, $cpu_kernel, $disk_io, $disk_available);"
 
 # execute the INSERT statement through psql CLI tool
 psql -h "$psql_host" -p "$psql_port" -U "$psql_user" -d "$db_name" -c "$insert_stmt"
