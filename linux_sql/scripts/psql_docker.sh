@@ -46,7 +46,7 @@ fi
 # if $1 = "start"
 if [[ "$command" == "start" ]]; then
   # start container
-  docker container run jrvs-psql
+  docker container start jrvs-psql
   exit $?
 fi
 
