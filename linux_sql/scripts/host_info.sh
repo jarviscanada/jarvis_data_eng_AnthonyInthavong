@@ -9,6 +9,10 @@ db_name="$3"
 psql_user="$4"
 psql_password="$5"
 
+# export password for psql instance (environment variable)
+# https://www.postgresql.org/docs/9.1/libpq-envars.html
+export PGPASSWORD="$psql_password"
+
 # parse host hardware specifications
 
 #save number of CPU to a variable
@@ -37,5 +41,4 @@ insert_stmt="INSERT INTO host_info (hostname, cpu_number, cpu_architecture, cpu_
   VALUES ('$hostname', $cpu_number, '$cpu_architecture', '$cpu_model', $cpu_mhz, $l2_cache, $total_mem, '$timestamp');"
 
 # execute the INSERT statement through psql CLI tool
-export PGPASSWORD="$psql_password"
 psql -h "$psql_host" -p "$psql_port" -U "$psql_user" -d "$db_name" -c "$insert_stmt"
