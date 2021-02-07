@@ -34,3 +34,25 @@ FROM (
     ) AS ss
 
 ORDER BY "timestamp" ASC) tt;
+
+-- detect host failure. Shows all host_id where number of responses is less than 3
+SELECT host_id, host_name, "timestamp", COUNT(host_id) as num_data_points
+FROM (
+    SELECT 
+        host_id,
+        host_name,
+        "timestamp"
+    FROM (
+        SELECT
+            host_id,
+            hostname AS host_name,
+            to_timestamp((extract("epoch" FROM "public".host_usage."timestamp")::int / 300) * 300) as "timestamp"
+        FROM
+            "public".host_usage JOIN "public".host_info
+        ON
+            "public".host_usage.host_id = "public".host_info.id
+    ) AS ss) tt
+GROUP BY host_id, host_name, "timestamp"
+HAVING COUNT(host_id) < 3
+ORDER BY "timestamp" ASC
+;
