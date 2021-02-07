@@ -11,34 +11,24 @@ SELECT cpu_number, host_id, total_mem FROM
 ) AS ss ORDER BY cpu_number ASC, total_mem DESC;
 
 -- average used memory percentage in 5 minute intervals
-SELECT DISTINCT ON ("timestamp") host_id, host_name, "timestamp", avg_used_mem_percentage
-FROM (
-    SELECT
-        host_id,
-        host_name,
-        "timestamp",
-        AVG(FLOOR((total_mem - memory_free)*100/total_mem))
-            OVER (PARTITION BY "timestamp")
-            AS avg_used_mem_percentage
-    FROM (
-        SELECT
-            host_id,
-            hostname AS host_name,
-            to_timestamp((extract("epoch" FROM "public".host_usage."timestamp")::int / 300) * 300) as "timestamp",
-            total_mem,
-            memory_free
-        FROM
-            "public".host_usage JOIN "public".host_info
-        ON
-            "public".host_usage.host_id = "public".host_info.id
-    ) AS ss
+SELECT
+    host_id,
+    hostname as host_name,
+    to_timestamp((extract("epoch" FROM "public".host_usage."timestamp")::int / 300) * 300) as "timestamp",
+    AVG(FLOOR((total_mem - memory_free)*100/total_mem)) AS avg_used_mem_percentage
+FROM "public".host_usage JOIN "public".host_info
+    ON "public".host_usage.host_id = "public".host_info.id
+GROUP BY
+    host_id,
+    hostname,
+    to_timestamp((extract("epoch" FROM "public".host_usage."timestamp")::int / 300) * 300)
+ORDER BY "timestamp" ASC
 
-ORDER BY "timestamp" ASC) tt;
 
 -- detect host failure. Shows all host_id where number of responses is less than 3
 SELECT host_id, host_name, "timestamp", COUNT(host_id) as num_data_points
 FROM (
-    SELECT 
+    SELECT
         host_id,
         host_name,
         "timestamp"
