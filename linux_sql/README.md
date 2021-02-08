@@ -1,8 +1,26 @@
 # Introduction
-
+TODO
 The Jarvis Linux Cluster Administration (LCA) team manages a Linux cluster of nodes/servers which are running CentOS 7. These servers are internally connected through a switch and able to communicate through internal IPv4 addresses.
 
-## Database Modelling
+
+
+# Quick Start
+TODO
+
+
+# Implementation
+TODO
+
+
+## Architecture
+TODO
+
+
+## Scripts
+TODO
+
+
+## Database Modeling
 - host_info: Stores Hardware Specific data
 
 |Column                |Type             | Description                     |Example                       |
@@ -30,3 +48,8 @@ The Jarvis Linux Cluster Administration (LCA) team manages a Linux cluster of no
 |disk_available |`integer`   |root directory available memory 		|25905 			      |
 
 
+# Test
+TODO
+
+
+# Improvements
