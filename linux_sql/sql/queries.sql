@@ -22,7 +22,7 @@ GROUP BY
     host_id,
     hostname,
     to_timestamp((extract("epoch" FROM "public".host_usage."timestamp")::int / 300) * 300)
-ORDER BY "timestamp" ASC
+ORDER BY "timestamp" ASC;
 
 
 -- detect host failure. Shows all host_id where number of responses is less than 3
@@ -44,5 +44,4 @@ FROM (
     ) AS ss) tt
 GROUP BY host_id, host_name, "timestamp"
 HAVING COUNT(host_id) < 3
-ORDER BY "timestamp" ASC
-;
+ORDER BY "timestamp" ASC;
