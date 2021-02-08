@@ -116,7 +116,7 @@ psql -h HOST_NAME -p 5432 -U USER_NAME -d DB_NAME -f FILE_NAME.sql
 |cpu_model           |`varchar`        |model of the cpu            |AMD EPYC 7B12 |
 |cpu_mhz             |`real`           |speed of cpu in `mhz`               |2249.998046875
 |L2_cache            |`integer`        |storage of L2 cache in `kb`         |512 |
-|total_mem           |`integer`        |total memory on host system in `kb` |7492120 |
+|total_mem           |`integer`        |total memory on host system in `kb` |7492 |
 |timestamp           |`timestamp`      |recorded time in `UTC`              |Feb 5, 2021, 9:17:57 PM |
 
 - host_usage: Stores Linux Resource Data Usage
