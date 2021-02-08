@@ -95,6 +95,7 @@ c. Detect host failure if sever failed (less than 3 rows of data are collected w
 host_id|timestamp|num_data_points 
 |-------|--------------|-------------|
 2|2019-01-01 00:10:00|2 
+
 This indicates the server corresponding to `host_id = 2` has failed
 
 ```bash
