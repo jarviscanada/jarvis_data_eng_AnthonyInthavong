@@ -15,7 +15,7 @@ SELECT
     host_id,
     hostname as host_name,
     to_timestamp((extract("epoch" FROM "public".host_usage."timestamp")::int / 300) * 300) as "timestamp",
-    AVG(FLOOR((total_mem - memory_free)*100/total_mem)) AS avg_used_mem_percentage
+    AVG(FLOOR((total_mem - memory_free/1000)*100/total_mem)) AS avg_used_mem_percentage
 FROM "public".host_usage JOIN "public".host_info
     ON "public".host_usage.host_id = "public".host_info.id
 GROUP BY
