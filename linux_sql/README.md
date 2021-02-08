@@ -96,6 +96,7 @@ host_id|timestamp|num_data_points
 |-------|--------------|-------------|
 2|2019-01-01 00:10:00|2 
 This indicates the server corresponding to `host_id = 2` has failed
+
 ```bash
 #execute a sql file using psql command
 psql -h HOST_NAME -p 5432 -U USER_NAME -d DB_NAME -f FILE_NAME.sql
