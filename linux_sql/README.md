@@ -3,10 +3,43 @@ TODO
 The Jarvis Linux Cluster Administration (LCA) team manages a Linux cluster of nodes/servers which are running CentOS 7. These servers are internally connected through a switch and able to communicate through internal IPv4 addresses.
 
 
-
 # Quick Start
-TODO
+- Create a `psql` container using `psql_docker.sh` specified with `db_username` and `db_password`
 
+```/scripts/psql_docker.sh create db_username db_password```
+
+- Start a `psql instance` using `psql_docker.sh`
+
+```/scripts/psql_docker.sh start|stop|create db_username db_password```
+
+- Stop a `psql instance` using `psql_docker.sh`
+
+```/scripts/psql_docker.sh start|stop|create db_username db_password```
+
+- Create tables using `ddl.sql`
+```
+#execute a sql file using psql command
+psql -h HOST_NAME -p 5432 -U USER_NAME -d DB_NAME -f FILE_NAME.sql
+```
+- Insert hardware specs data into the db using `host_info.sh` 
+
+```./scripts/host_info.sh psql_host psql_port db_name psql_user psql_password```
+- Insert hardware usage data into the db using `host_usage.sh` 
+
+```./scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password```
+
+- `Crontab` setup
+
+```
+#edit crontab jobs 
+crontab -e 
+
+#add this to crontab subsituting <path>
+* * * * * bash <path>/host_usage.sh psql_host psql_port db_name psql_user psql_password
+ 
+#list crontab jobs to verify process is running
+crontab -l
+```
 
 # Implementation
 TODO
