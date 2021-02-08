@@ -1,4 +1,4 @@
-ntroduction
+# Introduction
 
 The Jarvis Linux Cluster Administration (LCA) team manages a Linux cluster of nodes/servers which are running CentOS 7. These servers are internally connected through a switch and able to communicate through internal IPv4 addresses.
 
