@@ -84,10 +84,9 @@ Collect Linux usage data and upload into `db_name` within `psql image` in docker
 	- `psql_user`: postgreSQL username
 	- `psql_password`: postgreSQL password
 
-Script is run by Linux command `crontab` to collect Linux usage data every minute
+Script is run by Linux command `crontab` to collect Linux usage data every minute. `crontab` runs a bash process at a given time interval. This will help us collect usage data every minute or however frequent you like.
 
 ```
-### Example usage
 #edit crontab jobs 
 crontab -e 
 
