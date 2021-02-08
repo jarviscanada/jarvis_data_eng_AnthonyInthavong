@@ -40,7 +40,7 @@ cpu_architecture=$(echo "$lscpu_out" | egrep "^Architecture:" | awk '{print $2}'
 cpu_model=$(echo "$lscpu_out" | egrep "^Model name:" | sed 's/Model name://' | xargs)
 cpu_mhz=$(echo "$lscpu_out" | egrep "^CPU MHz:" | sed 's/CPU MHz://' | xargs)
 l2_cache=$(echo "$lscpu_out" | egrep "^L2 cache:" | sed 's/L2 cache://' | sed 's/\(\d*\).$/\1/' | xargs) 	# in kB
-total_mem=$(echo "$mentotal_out" | egrep "^MemTotal:" | awk '{print $2}' | xargs) 							# in kB
+total_mem=$(echo "$mentotal_out" | egrep "^MemTotal:" | awk '{print $2}' | awk '{print int($1/1000)}' | xargs) 							# in kB
 timestamp=$(date -u '+%Y-%m-%d %H:%M:%S')
 
 # construct the INSERT statement
