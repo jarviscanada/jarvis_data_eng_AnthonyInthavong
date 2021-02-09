@@ -1,14 +1,14 @@
 # Introduction
 
-The Jarvis Linux Cluster Administration (LCA) team manages a Linux cluster of nodes/servers which are running CentOS 7. These servers are internally connected through a switch and able to communicate through internal IPv4 addresses.
+The Jarvis Linux Cluster Administration (LCA) team manages a Linux cluster of nodes/servers running the Linux distribution CentOS 7. These servers are internally connected through a switch and able to communicate through internal IPv4 addresses.
 
-The team needs a product to record hardware specifications and monitor node resource usage in real time.
+The team needs a product to record hardware specifications and monitor node resource usage in real-time.
 
-This project is meant to be a MVP (minimal viable product) to help the LCA team collect data for future use such as generating reports for resource planning.
+This project is meant to be an MVP (minimal viable product) to help the LCA team collect data for future use such as generating reports for resource planning.
 
-We set up a Monitoring Agent on a node within the Linux cluster to collect information such as hardware specifications and resource usage on other nodes within the cluster. This Monitoring Agent contains a PostgreSQL Sever installed within a Docker Container that collects information submitted via bash scripts installed on each node.
+We set up a Monitoring Agent on a node within the Linux cluster to collect information such as hardware specifications and resource usage on other nodes within the cluster. This Monitoring Agent contains a PostgreSQL Server installed within a Docker Container that collects information submitted via bash scripts installed on each node.
 
-Set up is fairly simple as we only need to install a single bash script on each server we want data collected from.
+Set up is simple as we only need to install a few bash scripts on each server/node within the cluster.
 
 # Quick Start
 1. Create a `psql` container using `psql_docker.sh` specified with `db_username` and `db_password`
@@ -24,11 +24,11 @@ Set up is fairly simple as we only need to install a single bash script on each 
 #execute a sql file using psql command
 psql -h HOST_NAME -p 5432 -U USER_NAME -d DB_NAME -f FILE_NAME.sql
 ```
-4. Insert hardware specs data into the db using `host_info.sh` (Run once)
+4. Insert hardware specs data into the database using `host_info.sh` (Run once)
 
 ```./scripts/host_info.sh psql_host psql_port db_name psql_user psql_password```
 
-5.  Insert hardware usage data into the db using `host_usage.sh` (Run @ time intervals using `crontab`)
+5.  Insert hardware usage data into the database using `host_usage.sh` (Run @ time intervals using `crontab`)
 
 ```./scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password```
 
@@ -46,14 +46,14 @@ crontab -l
 ```
 
 
-6. Stop a `psql instance` using `psql_docker.sh` when finished
+6. Stop a `psql` instance using `psql_docker.sh` when finished
 
 ```/scripts/psql_docker.sh start|stop|create db_username db_password```
 
 # Implementation
-A `psql` container was created using Docker to host the `postgreSQL` database
+A `psql` container is created using Docker to host the `PostgreSQL` database
 
-The `psql` instance is hosted on a single Linux Server/Node. Other Linux Server/Nodes are connect by a switch allowing interaction via IPv4.
+The `psql` instance is hosted on a single Linux Server/Node. Other Linux Server/Nodes are connected by a switch allowing interaction via IPv4.
 
 Several `bash` scripts are created for automation purposes such as
 1. `./scripts/psql_docker.sh`
@@ -63,7 +63,7 @@ Several `bash` scripts are created for automation purposes such as
 3. `./scripts/host_usage.sh`
 	- Inserting host resource usage data into `host_usage` table
 
-SQL queries such as DDL and DML queries are implemented last. DDL scripts (`ddl.sql`) is used to generate two tables storing hardware specifications and resource usage. DML scripts (`queries.sql`) is used to retrieve information from the two created tables that can help answer relevant business needs such as resource planning.
+SQL queries such as DDL and DML queries are implemented last. DDL scripts (`ddl.sql`) are used to generate two tables storing hardware specifications and resource usage. DML scripts (`queries.sql`) is used to retrieve information from the two created tables that can help answer relevant business needs such as resource planning.
 
 1. `./sql/ddl.sql`
 	- Create `host_info`, `host_usage` tables
@@ -77,9 +77,9 @@ SQL queries such as DDL and DML queries are implemented last. DDL scripts (`ddl.
 A Linux cluster is a collection of servers/nodes running the Linux OS connected by a switch. This switch device allows the servers to communicate using IPv4.
 
 - A `psql` instance is installed on a node labeled as `Monitoring Agent`. This `psql` instance is used to store persistent data collected from other nodes within the cluster. 
-- A `bash agent` is installed on every node/server within the cluster. This `agent` consist of two scripts.
-	- `host_info.sh` collects the host hardware info and inserts into `psql` instance. This script is only run once at the installation time.
-	- `host_usage.sh` collects the current host usage data then inserts into the database. It will be scheduled by the `crontab` command to run every minute. 
+- A `bash agent` is installed on every node/server within the cluster. This `agent` consists of two scripts.
+	- `host_info.sh` collects the host hardware info and inserts them into the `psql` instance. This script is only run once at the installation time.
+	- `host_usage.sh` collects the current host usage data then inserts them into the database. It will be scheduled by the `crontab` command to run every minute. 
 
 ## Database Modelling
 - host_info
@@ -136,7 +136,7 @@ Collect hardware specification data and upload into db_name within `psql image` 
 	- `psql_user`: postgreSQL username
 	- `psql_password`: postgreSQL password
 
-Note: script is only run once to collect hardware data.
+Note: the script is only run once to collect hardware data.
 
 3. `./scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password`
 Collect Linux usage data and upload into `db_name` within `psql image` in docker container specified by 
@@ -146,7 +146,7 @@ Collect Linux usage data and upload into `db_name` within `psql image` in docker
 	- `psql_user`: postgreSQL username
 	- `psql_password`: postgreSQL password
 
-Script is run by Linux command `crontab` to collect Linux usage data every minute
+The script is run by Linux command `crontab` to collect Linux usage data every minute
 
 ```
 #edit crontab jobs 
@@ -163,7 +163,7 @@ cat /tmp/host_usage.log
 ```
 
 4. `./sql/ddl.sql`
-Generate `host_info` and `host_usage` tables to store hardware specification data and Linux usage data respectively. Note: script is run once to generate SQL tables.
+Generate `host_info` and `host_usage` tables to store hardware specification data and Linux usage data respectively. Note: The script is run once to generate SQL tables.
 ```bash
 #execute a sql file using psql command
 psql -h HOST_NAME -p 5432 -U USER_NAME -d DB_NAME -f FILE_NAME.sql
@@ -201,14 +201,15 @@ psql -h HOST_NAME -p 5432 -U USER_NAME -d DB_NAME -f FILE_NAME.sql
 
 ## Tests
 1. Bash Scripts
-Tests were done manually for all bash scripts. Including creating, starting, and stopping `psql` instance, and inserting values into `host_usage` and `host_info` tables. 
+Tests were done manually for all bash scripts. Including creating, starting, and stopping the `psql` instance, and inserting values into `host_usage` and `host_info` tables. 
 2. SQL Queries
-Query results were verified using mock data created by developer (me)
+Query results were verified using mock data created by the developer (me)
 
 ## Improvements
-- Create a bash script to run `crontab`. Allows for more flexible scheduling. For example, instead of 5 minute intervals, can be 1 minute, 1 day, etc
+- Create a bash script to run `crontab`. Allows for more flexible scheduling. For example, instead of 5-minute intervals, can be 1-minute, 1 day, etc
 - Write more queries to answer more business questions
-- Write SQL queries in bash script to allow for flexibility by having user define arguments
-- Recommend visualization software for SQL queries to make understanding more easier
-- Automate handle hardware changes of software of same `host_id`.
+- Write SQL queries in a bash script to allow for flexibility by having user define arguments
+- Recommend visualization software for SQL queries to make understanding easier
+- Automate handle hardware changes of software of same `host_id`
+
 
