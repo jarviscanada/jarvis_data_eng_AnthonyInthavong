@@ -72,6 +72,15 @@ SQL queries such as DDL and DML queries are implemented last. DDL scripts (`ddl.
 
 ## Architecture 
 
+![alt text](assets/network.png)
+
+A Linux cluster is a collection of servers/nodes running the Linux OS connected by a switch. This switch device allows the servers to communicate using IPv4.
+
+- A `psql` instance is installed on a node labeled as `Monitoring Agent`. This `psql` instance is used to store persistent data collected from other nodes within the cluster. 
+- A `bash agent` is installed on every node/server within the cluster. This `agent` consist of two scripts.
+	- `host_info.sh` collects the host hardware info and inserts into `psql` instance. This script is only run once at the installation time.
+	- `host_usage.sh` collects the current host usage data then inserts into the database. It will be scheduled by the `crontab` command to run every minute. 
+
 ## Database Modelling
 - host_info
 Stores Hardware Specific data
