@@ -9,7 +9,7 @@ public interface JavaGrep {
 
     /**
      * Top level search workflow
-     * @throws IOException
+     * @throws IOException if search fails
      */
     void process() throws IOException;
 
