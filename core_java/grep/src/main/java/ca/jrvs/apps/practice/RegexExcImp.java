@@ -1,4 +1,4 @@
-package ca.jrvs.apps.grep.practice;
+package ca.jrvs.apps.practice;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
