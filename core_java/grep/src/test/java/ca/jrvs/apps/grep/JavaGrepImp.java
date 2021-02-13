@@ -1,6 +1,7 @@
 package ca.jrvs.apps.grep;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -110,9 +111,11 @@ public class JavaGrepImp implements JavaGrep {
   public void writeToFile(List<String> lines) throws IOException {
     try {
       String outFile = getOutFile();
-      FileWriter writer = new FileWriter(outFile);
-      for (String line:lines)
+      BufferedWriter writer = new BufferedWriter(new FileWriter(outFile));
+      for (String line:lines) {
         writer.write(line);
+        writer.newLine();
+      }
       writer.close();
     } catch (IOException e) {
       e.printStackTrace();
