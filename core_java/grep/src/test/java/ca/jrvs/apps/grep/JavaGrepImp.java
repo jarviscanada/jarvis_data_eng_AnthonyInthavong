@@ -48,8 +48,21 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public void process() throws IOException {
-    String rootPath = getRootPath();
-    listFiles(rootPath);
+    try {
+      String rootPath = getRootPath();
+      List<String> matchedList = new ArrayList<>();
+      for (File file : listFiles(rootPath)) {
+        for (String line : readLines(file)) {
+          if (containsPattern(line)) {
+            matchedList.add(line);
+          }
+        }
+      }
+      writeToFile(matchedList);
+    } catch (IOException e) {
+      e.printStackTrace();
+      throw new IOException();
+    }
   }
 
   @Override
