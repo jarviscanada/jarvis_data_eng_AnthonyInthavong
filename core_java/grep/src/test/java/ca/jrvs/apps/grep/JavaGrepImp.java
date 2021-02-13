@@ -51,11 +51,10 @@ public class JavaGrepImp implements JavaGrep {
   @Override
   public List<File> listFiles(String rootDir) {
     try (Stream<Path> walk = Files.walk(Paths.get(rootDir))){
-      List<File> result = walk.filter(Files::isRegularFile)
-          .map(x -> x.toString()) //convert all files to string
-          .map(x -> new File(x)) //typecast to File
-          .collect(Collectors.toList()); //collect as list
-      return result;
+      return walk.filter(Files::isRegularFile)
+          .map(Path::toString) //convert all files to string
+          .map(File::new) //typecast to File
+          .collect(Collectors.toList());
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -72,8 +71,7 @@ public class JavaGrepImp implements JavaGrep {
     String regex = getRegex();
     Pattern pattern = Pattern.compile(regex);
     Matcher matcher = pattern.matcher(line);
-    boolean matchFound = matcher.find();
-    return matchFound;
+    return matcher.find();
   }
 
   @Override
