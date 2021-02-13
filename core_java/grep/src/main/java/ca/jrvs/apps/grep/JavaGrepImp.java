@@ -61,7 +61,7 @@ public class JavaGrepImp implements JavaGrep {
       writeToFile(matchedList);
     } catch (IOException e) {
       e.printStackTrace();
-      throw new IOException();
+      throw new IOException("USAGE: JavaGrep regex rootPath outFile");
     }
   }
 
