@@ -59,6 +59,7 @@ public class JavaGrepImp implements JavaGrep {
     } catch (IOException e) {
       e.printStackTrace();
     }
+    return null;
   }
 
   @Override
