@@ -3,6 +3,7 @@ package ca.jrvs.apps.grep;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -94,7 +95,15 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public void writeToFile(List<String> lines) throws IOException {
-
+    try {
+      String outFile = getOutFile();
+      FileWriter writer = new FileWriter(outFile);
+      for (String line:lines)
+        writer.write(line);
+      writer.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   @Override
