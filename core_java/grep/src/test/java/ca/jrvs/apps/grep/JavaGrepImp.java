@@ -1,10 +1,13 @@
 package ca.jrvs.apps.grep;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -63,6 +66,21 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public List<String> readLines(File inputFile) {
+    BufferedReader reader;
+    try {
+      reader = new BufferedReader(new FileReader(inputFile));
+      List<String> lines = new ArrayList<>();
+      String line = reader.readLine();
+      while (line != null) {
+        lines.add(line);
+        line = reader.readLine();
+      }
+      reader.close();
+      return lines;
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
     return null;
   }
 
