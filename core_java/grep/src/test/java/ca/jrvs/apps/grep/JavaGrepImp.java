@@ -51,14 +51,13 @@ public class JavaGrepImp implements JavaGrep {
   public void process() throws IOException {
     try {
       String rootPath = getRootPath();
-      List<String> matchedList = new ArrayList<>();
-      for (File file : listFiles(rootPath)) {
-        for (String line : readLines(file)) {
-          if (containsPattern(line)) {
-            matchedList.add(line);
-          }
-        }
-      }
+      List<String> matchedList = Stream.of(listFiles(rootPath))
+          .flatMap(List::stream)
+          .map(this::readLines)
+          .flatMap(List::stream)
+          .filter(this::containsPattern)
+          .collect(Collectors.toList());
+
       writeToFile(matchedList);
     } catch (IOException e) {
       e.printStackTrace();
