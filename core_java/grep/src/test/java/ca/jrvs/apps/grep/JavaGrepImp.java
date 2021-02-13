@@ -2,7 +2,14 @@ package ca.jrvs.apps.grep;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.apache.log4j.BasicConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,12 +44,21 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public void process() throws IOException {
-
+    String rootPath = getRootPath();
+    listFiles(rootPath);
   }
 
   @Override
   public List<File> listFiles(String rootDir) {
-    return null;
+    try (Stream<Path> walk = Files.walk(Paths.get(rootDir))){
+      List<File> result = walk.filter(Files::isRegularFile)
+          .map(x -> x.toString()) //convert all files to string
+          .map(x -> new File(x)) //typecast to File
+          .collect(Collectors.toList()); //collect as list
+      return result;
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   @Override
@@ -52,8 +68,11 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public boolean containsPattern(String line) {
-
-    return false;
+    String regex = getRegex();
+    Pattern pattern = Pattern.compile(regex);
+    Matcher matcher = pattern.matcher(line);
+    boolean matchFound = matcher.find();
+    return matchFound;
   }
 
   @Override
