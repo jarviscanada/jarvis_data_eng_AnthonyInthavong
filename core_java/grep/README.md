@@ -1,6 +1,5 @@
 # Introduction
-A simple `grep` application built using Java 1.8. The app searches for a regex text pattern recursively in a given directory, 
-and output matched lines to files. The app takes in three arguments
+A simple `grep` application built using Java 1.8. The app searches for a regex text pattern recursively in a given directory and outputs the matched lines to files. The app takes in three arguments
 
 ```
 USAGE: java -cp grep.jar {regex} {rootPath} {outFile}
@@ -19,7 +18,7 @@ The program can be downloaded from Github and compiled on your local computer or
 
 `mvn clean build compile`
 
-An Image from Docker Hub has the compiled `grep.jar` file uploaded and be pulled using 
+An Image from Docker Hub has the compiled `grep.jar` file uploaded and be pulled using
 
 `docker pull inthavo2/grep`
 
@@ -94,4 +93,4 @@ docker run --rm -v {rootPath} -v {outFile} inthavo2/grep {regex} {rootPath} {out
 
 # Improvements
 
- - Java grep has difficultly reading from large files. We can fix this by implementing readLines function using a Buffer Object instead of an ArrayList
+- Java grep has difficultly reading from large files. We can fix this by implementing readLines function using a Buffer Object instead of an ArrayList
