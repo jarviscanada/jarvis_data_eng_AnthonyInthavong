@@ -43,7 +43,7 @@ public class JavaGrepImp implements JavaGrep {
     try {
       javaGrepImp.process();
     } catch (Exception ex) {
-      javaGrepImp.logger.error(ex.getMessage(), ex);
+      javaGrepImp.logger.error("Unable to process", ex);
     }
   }
 
@@ -60,8 +60,8 @@ public class JavaGrepImp implements JavaGrep {
 
       writeToFile(matchedList);
     } catch (IOException e) {
-      e.printStackTrace();
-      throw new IOException("USAGE: JavaGrep regex rootPath outFile");
+      logger.error("USAGE: JavaGrep regex rootPath outFile", e);
+      throw e;
     }
   }
 
@@ -73,7 +73,7 @@ public class JavaGrepImp implements JavaGrep {
           .map(File::new) //typecast to File
           .collect(Collectors.toList());
     } catch (IOException e) {
-      e.printStackTrace();
+      logger.error("Unable to listFiles", e);
     }
     return null;
   }
@@ -92,7 +92,7 @@ public class JavaGrepImp implements JavaGrep {
       reader.close();
       return lines;
     } catch (IOException e) {
-      e.printStackTrace();
+      logger.error("Unable to readLines in file", e);
     }
 
     return null;
@@ -117,7 +117,7 @@ public class JavaGrepImp implements JavaGrep {
       }
       writer.close();
     } catch (IOException e) {
-      e.printStackTrace();
+      logger.error("Unable to writeToFile", e);
     }
   }
 
