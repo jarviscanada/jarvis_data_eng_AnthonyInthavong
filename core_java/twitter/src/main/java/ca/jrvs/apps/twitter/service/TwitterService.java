@@ -1,8 +1,7 @@
-package ca.jrvs.apps.twitter;
+package ca.jrvs.apps.twitter.service;
 
-import ca.jrvs.apps.twitter.model.Coordinates;
+import ca.jrvs.apps.twitter.dao.CrdDao;
 import ca.jrvs.apps.twitter.model.Tweet;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
