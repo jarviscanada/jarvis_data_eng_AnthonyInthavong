@@ -27,7 +27,7 @@ public class Tweet {
   @JsonProperty("created_at")
   private String createdAt;
   @JsonProperty("id")
-  private Integer id;
+  private Long id;
   @JsonProperty("id_str")
   private String idStr;
   @JsonProperty("text")
@@ -45,7 +45,7 @@ public class Tweet {
   @JsonProperty("retweeted")
   private Boolean retweeted;
   @JsonIgnore
-  private Map<String, Object> additionalProperties = new HashMap<>();
+  private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
   @JsonProperty("created_at")
   public String getCreatedAt() {
@@ -58,12 +58,12 @@ public class Tweet {
   }
 
   @JsonProperty("id")
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
   @JsonProperty("id")
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
