@@ -1,9 +1,12 @@
 package ca.jrvs.apps.twitter.service;
 
 import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.isNotNull;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import ca.jrvs.apps.twitter.dao.CrdDao;
 import ca.jrvs.apps.twitter.dao.TwitterDao;
@@ -111,13 +114,47 @@ public class TwitterServiceUnitTest {
     assertNotNull(tweet);
   }
 
-//  @Test
-//  public void showTweet() {
-//    service.showTweet();
-//  }
-//
-//  @Test
-//  public void deleteTweets() {
-//    service.deleteTweets();
-//  }
+  @Test
+  public void showTweet() {
+    // invalid tweet id
+    try {
+      service.showTweet("abc", null);
+      fail();
+    } catch (IllegalArgumentException e) {
+      assertTrue(true);
+    }
+
+    // valid tweet id
+    tweet = TweetUtil.buildTweet("HellWorld", 1d, 1d);
+    String id = "1228393702244134912";
+    doReturn(tweet).when(mockDao).findById(id);
+    tweet = service.showTweet(id, null);
+    verify(mockDao).findById(id);
+    assertNotNull(tweet);
+    assertNotNull(tweet.getText());
+  }
+
+  @Test
+  public void deleteTweets() {
+    // test fail
+    String[] ids = {"abc"};
+    try {
+      service.deleteTweets(ids);
+      fail();
+    } catch (IllegalArgumentException e) {
+      assertTrue(true);
+    }
+
+    // test success
+    ids = new String[]{"1", "2"};
+    Arrays.stream(ids).forEach(
+        s -> doReturn(TweetUtil.buildTweet(s.toString(), 1d, 1d)).
+            when(mockDao).deleteById(s.toString())
+    );
+    service.deleteTweets(ids).stream().forEach(
+        tweet -> assertNotNull(tweet)
+    );
+
+
+  }
 }
