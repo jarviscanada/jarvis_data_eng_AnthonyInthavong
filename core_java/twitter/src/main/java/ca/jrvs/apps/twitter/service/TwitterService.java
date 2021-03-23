@@ -5,8 +5,12 @@ import ca.jrvs.apps.twitter.model.Tweet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TwitterService implements Service {
+
+  private final static Logger logger = LoggerFactory.getLogger(Service.class);
 
   private CrdDao dao;
 
@@ -25,21 +29,24 @@ public class TwitterService implements Service {
     return (Tweet) this.dao.create(tweet);
   }
 
-  private void validatePostTweet(Tweet tweet) throws IllegalArgumentException {
+  void validatePostTweet(Tweet tweet) throws IllegalArgumentException {
     List<Double> coordinates = tweet.getCoordinates().getCoordinates();
     double lon = coordinates.get(1);
     double lat = coordinates.get(0);
     int textLength = tweet.getText().length();
     // check if tweet text exceeds 140 characters
     if (textLength > 140) {
+      logger.error("Tweet text cannot be longer than 140 characters: {}", textLength);
       throw new IllegalArgumentException("Tweet text cannot be longer than 140 characters");
     }
     // longitude
-    else if (-180 <= lon && lon <= 180) {
+    else if (-180 > lon || lon > 180) {
+      logger.error("Longitude must be in range [-180, 180]: {}", lon);
       throw new IllegalArgumentException("Longitude must be in range [-180, 180]");
     }
     // latitude
-    else if (-90 <= lat && lat <= 90) {
+    else if (-90 > lat || lat > 90) {
+      logger.error("Latitude must be in range [-90, 90]: {}", lat);
       throw new IllegalArgumentException("Latitude must be in range [-90, 90]");
     }
 
@@ -51,7 +58,7 @@ public class TwitterService implements Service {
     return (Tweet) dao.findById(id);
   }
 
-  private void validateId(String id) {
+  void validateId(String id) {
     try {
       Long.parseLong(id);
     } catch (NumberFormatException e) {
