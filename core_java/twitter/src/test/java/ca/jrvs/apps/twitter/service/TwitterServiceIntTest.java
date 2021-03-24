@@ -35,6 +35,9 @@ public class TwitterServiceIntTest {
   Tweet tweet;
   String text;
 
+  double longitude;
+  double latitude;
+
   @Before
   public void setUp() {
     BasicConfigurator.configure();
@@ -97,11 +100,12 @@ public class TwitterServiceIntTest {
           tweet.getCoordinates().getCoordinates().get(1));
     }
 
+    // testing working post request
     // minimum requirements to build tweet object
     String hashTag = "#abc";
     text = "sometext " + hashTag + " " + System.currentTimeMillis();
-    double longitude = -1d;
-    double latitude = 1d;
+    longitude = -1d;
+    latitude = 1d;
 
     tweet = TweetUtil.buildTweet(
         URLEncoder.encode(text, "UTF-8"),
@@ -109,7 +113,10 @@ public class TwitterServiceIntTest {
     );
     tweet = service.postTweet(tweet);
     assertNotNull(tweet);
-    assertNotNull(tweet.getText());
+    assertEquals(text, tweet.getText());
+    assertEquals((Double) longitude, tweet.getCoordinates().getCoordinates().get(0));
+    assertEquals((Double) latitude, tweet.getCoordinates().getCoordinates().get(1));
+
 
     // tear down - delete tweet
     try {
@@ -133,12 +140,17 @@ public class TwitterServiceIntTest {
 
     // valid tweet id
     text = "Hello World";
-    tweet = TweetUtil.buildTweet(URLEncoder.encode(text, "UTF-8"), 1d, 1d);
+    longitude = 1d;
+    latitude = 1d;
+    tweet = TweetUtil.buildTweet(URLEncoder.encode(text, "UTF-8"),
+        longitude, latitude);
     tweet = service.postTweet(tweet);
     String id = tweet.getIdStr();
     tweet = service.showTweet(id, null);
     assertNotNull(tweet);
-    assertNotNull(tweet.getText());
+    assertEquals(text, tweet.getText());
+    assertEquals((Double) longitude, tweet.getCoordinates().getCoordinates().get(0));
+    assertEquals((Double) latitude, tweet.getCoordinates().getCoordinates().get(1));
 
     // tear down - delete tweet
     try {

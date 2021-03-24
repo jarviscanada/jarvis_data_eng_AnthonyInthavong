@@ -59,8 +59,8 @@ public class TwitterDaoIntTest {
     tweet = (Tweet) dao.create(tweet);
     assertNotNull(tweet);
     assertEquals(text, tweet.getText());
-//    assertEquals(longitude, tweet.getCoordinates().getCoordinates().get(0));
-//    assertEquals(latitude, tweet.getCoordinates().getCoordinates().get(1));
+    assertEquals(longitude, tweet.getCoordinates().getCoordinates().get(0));
+    assertEquals(latitude, tweet.getCoordinates().getCoordinates().get(1));
 
     // tear down - delete tweet
     try {
@@ -78,8 +78,8 @@ public class TwitterDaoIntTest {
     tweet = (Tweet) dao.findById(tweet.getIdStr());
 
     assertEquals(text, tweet.getText());
-//    assertEquals(longitude, tweet.getCoordinates().getCoordinates().get(0));
-//    assertEquals(latitude, tweet.getCoordinates().getCoordinates().get(1));
+    assertEquals(longitude, tweet.getCoordinates().getCoordinates().get(0));
+    assertEquals(latitude, tweet.getCoordinates().getCoordinates().get(1));
   }
 
   @Test
@@ -87,7 +87,7 @@ public class TwitterDaoIntTest {
     tweet = (Tweet) dao.create(tweet);
     tweet = (Tweet) dao.deleteById(tweet.getIdStr());
     assertEquals(text, tweet.getText());
-//    assertEquals(longitude, deletedTweet.getCoordinates().getCoordinates().get(0));
-//    assertEquals(latitude, deletedTweet.getCoordinates().getCoordinates().get(1));
+    assertEquals(longitude, tweet.getCoordinates().getCoordinates().get(0));
+    assertEquals(latitude, tweet.getCoordinates().getCoordinates().get(1));
   }
 }
