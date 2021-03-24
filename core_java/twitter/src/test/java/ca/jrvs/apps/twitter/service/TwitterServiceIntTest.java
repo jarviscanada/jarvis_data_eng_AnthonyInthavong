@@ -121,7 +121,7 @@ public class TwitterServiceIntTest {
     // tear down - delete tweet
     try {
       logger.error(tweet.getText());
-      dao.deleteById(tweet.getIdStr());
+      service.deleteTweets(new String[]{tweet.getIdStr()});
     } catch (Exception e) {
       logger.error("Tweet ID not found: {}", tweet.getIdStr());
       throw new RuntimeException(e);
