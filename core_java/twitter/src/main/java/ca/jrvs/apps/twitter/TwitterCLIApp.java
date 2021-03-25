@@ -38,7 +38,7 @@ public class TwitterCLIApp {
     TwitterCLIApp app = new TwitterCLIApp(controller);
 
     // start app
-    app.run();
+    app.run(args);
   }
 
   public void run(String[] args) {
