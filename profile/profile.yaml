@@ -1,0 +1,126 @@
+# Preferred name (Characters only)
+name: "Anthony Inthavong"
+# Your GitHub repo root URL
+github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_AnthonyInthavong
+
+# Introduce yourself, your academic and professional background.
+# What excites you about the software industry and your passion. At least 80 words
+summary: My name is Anthony Inthavong and I graduated from the University of Toronto in 2020, 
+        specializing in Machine Learning and Data Science with extensive experience in Programming and Algorithms. 
+        I am a versatile developer with a diverse skillset, having theoretical knowledge of computer science and 
+        machine learning, along with their practical applications. Joining Jarvis Consulting as taught me how to 
+        apply my skills in a professional working environment. Through Jarvis, I learned to apply my apply my passion as a problem solver to provide real world solutions.
+        I am very eager to meet with Jarvis' clients and not only learn from them, but also demonstrate my skill set. 
+
+# Group your skills by level.
+# Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
+skills:
+  # At least 5 skills
+  proficient:
+    - Machine Learning and Data Science
+    - Data Structures and Algorithms
+    - Python
+    - Java
+    - Linux/Bash
+    - RDBMS/SQL
+    - Agile/Scrum
+    - Git
+  # At least 5 skills
+  competent:
+    - Pandas
+    - Numpy
+    - SciPy
+    - Scikit-learn
+    - Test Driven Development (TDD)
+  # At least 5 skills
+  familiar:
+    - TensorFlow
+    - R
+    - Matlab
+    - Flask
+    - Spark
+
+
+# List of Jarvis projects
+jarvis_projects:
+  - name: "Cluster Monitor"
+    git_url: "/linux_sql"
+    # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: Developed a Monitoring Agent within the Linux cluster to collect information such as hardware specifications and resource usage on nodes within the cluster. This Monitoring Agent contains a PostgreSQL Server installed within a Docker Container that collects information submitted via bash scripts installed on each node.
+  - name: "Core Java Apps"
+    git_url: "/core_java"
+    description:
+      - "Twitter App: Developed Twitter API using CRD operations following a MVC architecture in Java 1.8. Followed Repository Design pattern to manage data flow by using DTO's and DAO. Spring Framework was implemented to manage object dependencies."
+      - "JDBC App: This application is a demonstration of the DAO and Repository Design patterns being implemented using JDBC (Java Database Connectivity). Basic CRUD operations were implemented."
+      - "Grep App: Implemented a simple grep application built using Java 1.8. The app searches for a regex text pattern recursively in a given directory and outputs the matched lines to files. This application was Dockerized for easy distribution."
+  - name: "Springboot App"
+    git_url: "/springboot"
+    description: ""
+  - name: "Python Data Analytics"
+    git_url: "/python_data_anlytics"
+    description: ""
+  - name: "Hadoop"
+    git_url: "/hadoop"
+    description: ""
+  - name: "Spark"
+    git_url: "/spark"
+    description: ""
+  - name: "Cloud/DevOps"
+    git_url: "/cloud_devops"
+    description: ""
+
+# List of personal or academic projects
+# Feel free to add more projects
+highlighted_projects:
+    #project name
+  - name: "Covid ETL data pipeline and API"
+    #URL is optional
+    git_url: "https://github.com/anth7310/Covid19-ETL-API"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: Basic ETL pipeline using Python, Pandas. Loaded into a SQLite database. Also RESTFUL api built using Python's Flask.
+
+  - name: "Messenger DashBoard (Mandem)"
+    git_url: "https://github.com/abhin-ch/MessengerAnalyse-v2.0"
+    description: Analytical Dashboard for quick interpretation of your text conversations from Facebook’s messenger. Unique feature is using IBM Watson's Personality Insights API to summarize text into 5 main personality types. Developed backend data processing using Python, Pandas, SQLite, and NLTK (NLP library).
+
+#List of professional experience
+#The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+#The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
+professional_experience:
+  #Write your Jarvis role as a professional experience rather than training.
+  - title: "Teaching Assistant"
+    company: "University of Toronto School of Continuing Studies"
+    duration: "2021-Present"
+    description: "A 24-week in-class intensive program focused on gaining technical programming skills in Excel, VBA, Python, R, JavaScript, SQL Databases, Tableau, Big Data, and Machine Learning. Involves mentoring students through the code writing, debugging, designing phases."
+
+  - title: "Teaching and Researching Instructor"
+    company: "Robotno. 1 Education and Technology Inc."
+    duration: "2021-Present"
+    description: "Taught young children Python and programming skills. Researched and developed new material for future courses."
+
+  - title: "Private Tutor"
+    company: "Freelance"
+    duration: "2020-Present"
+    description: "Taught subjects in Machine Learning, Computer Science, and Statistics at Master's and Undergraduate level."
+
+#List of edcuation
+education: 
+  - school_name: "University of Toronto"
+    duration: "2016-2020"
+    degree: "Bachelor of Science specializing in Statistical Machine Learning and Data Science"
+    department: "Computer Science, Mathematics, and Statistics"
+    # optional
+    awards_achievements:
+
+
+#Optional section
+others:
+    #category
+  - title: "Certificates"
+    #list of items
+    bullets:
+      - "Google Cloud Platform (GCP) Big Data and Machine Learning Fundamentals (2020)"
+  - title: "Activities/Hobbies"
+    bullets:
+      - "Competitive gaming (League of Legends)"
