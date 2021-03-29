@@ -1,0 +1,136 @@
+{
+  "education": [
+    {
+      "awards_achievements": null,
+      "degree": "Bachelor of Science specializing in Statistical Machine Learning and Data Science",
+      "department": "Computer Science, Mathematics, and Statistics",
+      "duration": "2016-2020",
+      "school_name": "University of Toronto"
+    }
+  ],
+  "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_AnthonyInthavong",
+  "highlighted_projects": [
+    {
+      "description": "Basic ETL pipeline using Python, Pandas. Loaded into a SQLite database. Also RESTFUL api built using Python's Flask.",
+      "git_url": "https://github.com/anth7310/Covid19-ETL-API",
+      "name": "Covid ETL data pipeline and API"
+    },
+    {
+      "description": "Analytical Dashboard for quick interpretation of your text conversations from Facebook’s messenger. Unique feature is using IBM Watson's Personality Insights API to summarize text into 5 main personality types. Developed backend data processing using Python, Pandas, SQLite, and NLTK (NLP library).",
+      "git_url": "https://github.com/abhin-ch/MessengerAnalyse-v2.0",
+      "name": "Messenger DashBoard (Mandem)"
+    }
+  ],
+  "jarvis_projects": [
+    {
+      "description": "Developed a Monitoring Agent within the Linux cluster to collect information such as hardware specifications and resource usage on nodes within the cluster. This Monitoring Agent contains a PostgreSQL Server installed within a Docker Container that collects information submitted via bash scripts installed on each node.",
+      "git_url": "/linux_sql",
+      "name": "Cluster Monitor"
+    },
+    {
+      "description": [
+        "Twitter App: Developed Twitter API using CRD operations following a MVC architecture in Java 1.8. Followed Repository Design pattern to manage data flow by using DTO's and DAO. Spring Framework was implemented to manage object dependencies.",
+        "JDBC App: This application is a demonstration of the DAO and Repository Design patterns being implemented using JDBC (Java Database Connectivity). Basic CRUD operations were implemented.",
+        "Grep App: Implemented a simple grep application built using Java 1.8 and Java Stream API. The app searches for a regex text pattern recursively in a given directory and outputs the matched lines to files. This application was Dockerized for easy distribution."
+      ],
+      "git_url": "/core_java",
+      "name": "Core Java Apps"
+    },
+    {
+      "description": "",
+      "git_url": "/springboot",
+      "name": "Springboot App"
+    },
+    {
+      "description": "",
+      "git_url": "/python_data_anlytics",
+      "name": "Python Data Analytics"
+    },
+    {
+      "description": "",
+      "git_url": "/hadoop",
+      "name": "Hadoop"
+    },
+    {
+      "description": "",
+      "git_url": "/spark",
+      "name": "Spark"
+    },
+    {
+      "description": "",
+      "git_url": "/cloud_devops",
+      "name": "Cloud/DevOps"
+    }
+  ],
+  "name": "Anthony Inthavong",
+  "others": [
+    {
+      "bullets": [
+        "Google Cloud Platform (GCP) Big Data and Machine Learning Fundamentals (2020)"
+      ],
+      "title": "Certificates"
+    },
+    {
+      "bullets": [
+        "Competitive gaming (League of Legends)"
+      ],
+      "title": "Activities/Hobbies"
+    }
+  ],
+  "professional_experience": [
+    {
+      "company": "Jarvis",
+      "description": "Implemented various projects using tools and technologies such as Java 1.8, Maven, Linux/Bash, Git, Docker and RDBMS. Utilized collaboration and communication using Scrum and Agile by hosting daily meetings.",
+      "duration": "2021-Present",
+      "title": "Data Engineer"
+    },
+    {
+      "company": "University of Toronto School of Continuing Studies",
+      "description": "A 24-week in-class intensive program focused on gaining technical programming skills in Excel, VBA, Python, R, JavaScript, SQL Databases, Tableau, Big Data, and Machine Learning. Involves mentoring students through the code writing, debugging, designing phases.",
+      "duration": "2021-Present",
+      "title": "Teaching Assistant"
+    },
+    {
+      "company": "Robotno. 1 Education and Technology Inc.",
+      "description": "Taught young children Python and programming skills. Researched and developed new material for future courses.",
+      "duration": "2021-Present",
+      "title": "Teaching and Researching Instructor"
+    },
+    {
+      "company": "Freelance",
+      "description": "Taught subjects in Machine Learning, Computer Science, and Statistics at Master's and Undergraduate level.",
+      "duration": "2020-Present",
+      "title": "Private Tutor"
+    }
+  ],
+  "skills": {
+    "competent": [
+      "JUnit 4",
+      "Mockito",
+      "Pandas",
+      "Numpy",
+      "SciPy",
+      "Scikit-learn",
+      "Test Driven Development (TDD)"
+    ],
+    "familiar": [
+      "TensorFlow",
+      "R",
+      "Matlab",
+      "Flask",
+      "Spark",
+      "Google Cloud Platform (GCP)"
+    ],
+    "proficient": [
+      "Python",
+      "Java",
+      "Machine Learning and Data Science",
+      "Data Structures and Algorithms",
+      "Linux/Bash",
+      "RDBMS/SQL",
+      "Agile/Scrum",
+      "Git"
+    ]
+  },
+  "summary": "My name is Anthony Inthavong and I graduated from the University of Toronto in 2020, specializing in Machine Learning and Data Science with extensive experience in Programming and Algorithms. I am a versatile developer with a diverse skillset, having theoretical knowledge of computer science and machine learning, along with their practical applications. Through Jarvis I have worked on a variety of unique projects utilizing Java 1.8, Maven, Linux/Bash, Git, Docker and RDBMS. I am very eager to meet with Jarvis' clients and not only learn from them, but also demonstrate my skill set."
+}
