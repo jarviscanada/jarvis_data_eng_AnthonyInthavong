@@ -17,16 +17,18 @@ summary: My name is Anthony Inthavong and I graduated from the University of Tor
 skills:
   # At least 5 skills
   proficient:
-    - Machine Learning and Data Science
-    - Data Structures and Algorithms
     - Python
     - Java
+    - Machine Learning and Data Science
+    - Data Structures and Algorithms
     - Linux/Bash
     - RDBMS/SQL
     - Agile/Scrum
     - Git
   # At least 5 skills
   competent:
+    - JUnit 4
+    - Mockito
     - Pandas
     - Numpy
     - SciPy
@@ -39,6 +41,7 @@ skills:
     - Matlab
     - Flask
     - Spark
+    - Google Cloud Platform (GCP)
 
 
 # List of Jarvis projects
@@ -53,7 +56,7 @@ jarvis_projects:
     description:
       - "Twitter App: Developed Twitter API using CRD operations following a MVC architecture in Java 1.8. Followed Repository Design pattern to manage data flow by using DTO's and DAO. Spring Framework was implemented to manage object dependencies."
       - "JDBC App: This application is a demonstration of the DAO and Repository Design patterns being implemented using JDBC (Java Database Connectivity). Basic CRUD operations were implemented."
-      - "Grep App: Implemented a simple grep application built using Java 1.8. The app searches for a regex text pattern recursively in a given directory and outputs the matched lines to files. This application was Dockerized for easy distribution."
+      - "Grep App: Implemented a simple grep application built using Java 1.8 and Java Stream API. The app searches for a regex text pattern recursively in a given directory and outputs the matched lines to files. This application was Dockerized for easy distribution."
   - name: "Springboot App"
     git_url: "/springboot"
     description: ""
@@ -89,6 +92,12 @@ highlighted_projects:
 #The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
 professional_experience:
   #Write your Jarvis role as a professional experience rather than training.
+  - title: "Data Engineer"
+    company: "Jarvis"
+    duration: "2021-Present"
+    description: "Implemented various projects using tools and technologies such as 
+      Java 1.8, Maven, Linux/Bash, Git, Docker and RDBMS. Utilized collaboration and communication using Scrum and Agile by hosting daily meetings."
+
   - title: "Teaching Assistant"
     company: "University of Toronto School of Continuing Studies"
     duration: "2021-Present"
