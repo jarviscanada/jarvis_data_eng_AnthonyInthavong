@@ -1,6 +1,6 @@
 # Anthony Inthavong . Jarvis Consulting
 
-My name is Anthony Inthavong and I graduated from the University of Toronto in 2020, specializing in Machine Learning and Data Science with extensive experience in Programming and Algorithms. I am a versatile developer with a diverse skillset, having theoretical knowledge of computer science and machine learning, along with their practical applications. Through Jarvis I have worked on a variety of unique projects utilizing Java 1.8, Maven, Linux/Bash, Git, Docker and RDBMS. I am very eager to meet with Jarvis' clients and not only learn from them, but also demonstrate my skill set.
+My name is Anthony Inthavong and I graduated from the University of Toronto in 2020, specializing in Machine Learning and Data Science with extensive experience in Programming and Algorithms. I am a versatile developer with a diverse skill set, having theoretical knowledge of computer science and machine learning, along with their practical applications. Through Jarvis, I have worked on a variety of unique projects utilizing Java 1.8, Maven, Linux/Bash, Git, Docker, and RDBMS. I am very eager to meet with Jarvis' clients and not only learn from them, but also demonstrate my skill set.
 
 ## Skills
 
@@ -35,9 +35,9 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AnthonyInt
 
 
 ## Highlighted Projects
-**Covid ETL data pipeline and API** [[GitHub](https://github.com/anth7310/Covid19-ETL-API)]: Basic ETL pipeline using Python, Pandas. Loaded into a SQLite database. Also RESTFUL api built using Python's Flask.
+**Covid ETL data pipeline and API** [[GitHub](https://github.com/anth7310/Covid19-ETL-API)]: Basic ETL pipeline using Python, Pandas. Loaded into an SQLite database. Also, RESTFUL API built using Python's Flask.
 
-**Messenger DashBoard (Mandem)** [[GitHub](https://github.com/abhin-ch/MessengerAnalyse-v2.0)]: Analytical Dashboard for quick interpretation of your text conversations from Facebook’s messenger. Unique feature is using IBM Watson's Personality Insights API to summarize text into 5 main personality types. Developed backend data processing using Python, Pandas, SQLite, and NLTK (NLP library).
+**Messenger DashBoard (Mandem)** [[GitHub](https://github.com/abhin-ch/MessengerAnalyse-v2.0)]: Analytical Dashboard for quick interpretation of your text conversations from Facebook’s messenger. A unique feature is using IBM Watson's Personality Insights API to summarize text into 5 main personality types. Developed backend data processing using Python, Pandas, SQLite, and NLTK (NLP library).
 
 
 ## Professional Experiences
@@ -46,7 +46,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AnthonyInt
 
 **Teaching Assistant, University of Toronto School of Continuing Studies (2021-Present)**: A 24-week in-class intensive program focused on gaining technical programming skills in Excel, VBA, Python, R, JavaScript, SQL Databases, Tableau, Big Data, and Machine Learning. Involves mentoring students through the code writing, debugging, designing phases.
 
-**Teaching and Researching Instructor, Robotno. 1 Education and Technology Inc. (2021-Present)**: Taught young children Python and programming skills. Researched and developed new material for future courses.
+**Teaching and Researching Instructor, Robotno. 1 Education and Technology Inc. (2021-Present)**: Teach young children Python and programming skills. Research and develop material for future courses.
 
 **Private Tutor, Freelance (2020-Present)**: Taught subjects in Machine Learning, Computer Science, and Statistics at Master's and Undergraduate level.
 
