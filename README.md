@@ -4,7 +4,7 @@ My name is Anthony Inthavong and I graduated from the University of Toronto in 2
 
 ## Skills
 
-**Proficient:** Python, Java, Machine Learning and Data Science, Data Structures and Algorithms, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
+**Proficient:** Java, Python, Machine Learning and Data Science, Data Structures and Algorithms, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
 
 **Competent:** JUnit 4, Mockito, Pandas, Numpy, SciPy, Scikit-learn, Test Driven Development (TDD)
 

@@ -15,8 +15,8 @@ summary: My name is Anthony Inthavong and I graduated from the University of Tor
 skills:
   # At least 5 skills
   proficient:
-    - Python
     - Java
+    - Python
     - Machine Learning and Data Science
     - Data Structures and Algorithms
     - Linux/Bash
