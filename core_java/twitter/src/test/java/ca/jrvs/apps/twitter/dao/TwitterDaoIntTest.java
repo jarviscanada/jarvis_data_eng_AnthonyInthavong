@@ -8,7 +8,7 @@ import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.util.TweetUtil;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import org.apache.log4j.BasicConfigurator;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,7 +32,7 @@ public class TwitterDaoIntTest {
 
   @Before
   public void setUp() throws UnsupportedEncodingException {
-    BasicConfigurator.configure();
+
     String consumerKey = System.getenv("consumerKey");
     String consumerSecret = System.getenv("consumerSecret");
     String accessToken = System.getenv("accessToken");

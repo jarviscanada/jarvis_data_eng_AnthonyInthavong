@@ -17,7 +17,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
-import org.apache.log4j.BasicConfigurator;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,7 +45,6 @@ public class TwitterServiceUnitTest {
 
   @Before
   public void setUp() throws UnsupportedEncodingException {
-    BasicConfigurator.configure();
   }
 
   @Test

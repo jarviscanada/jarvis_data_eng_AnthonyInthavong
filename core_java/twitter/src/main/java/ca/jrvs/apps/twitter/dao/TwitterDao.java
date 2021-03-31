@@ -58,7 +58,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
 
     // Execute HTTP Request
     HttpResponse response = httpHelper.httpPost(uri);
-    logger.error("executed httpPost request");
+    logger.info("executed httpPost request");
     // Validate response and deserialize response to Tweet object
     return parseResponseBody(response, HTTP_OK);
   }
@@ -145,7 +145,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
 
     try {
       uri = new URI(API_BASE_URI + DELETE_PATH + '/' + s + ".json");
-      logger.error("deleteById URI: {}", uri.toString());
+      logger.info("deleteById URI: {}", uri.toString());
     } catch (URISyntaxException e) {
       throw new IllegalArgumentException("Invalid Syntax for URI", e);
     }

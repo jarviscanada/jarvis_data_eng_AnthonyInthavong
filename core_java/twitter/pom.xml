@@ -1,32 +1,25 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>2.1.3.RELEASE</version>
-    <relativePath/>
+    <relativePath />
   </parent>
-
   <groupId>ca.jrvs.apps</groupId>
-  <artifactId>java_apps</artifactId>
-  <version>1.0-SNAPSHOT</version>
-
+  <artifactId>twitter</artifactId>
+  <version>1.2-SNAPSHOT</version>
+  <scm>
+    <connection>scm:git:git@github.com:jarvisgroup/jarvis_data_eng_edward.git</connection>
+    <url>scm:git:git@github.com:jarvisgroup/jarvis_data_eng_edward.git</url>
+    <developerConnection>scm:git:git@github.com:jarvisgroup/jarvis_data_eng_edward.git</developerConnection>
+    <tag>twitter-1.0</tag>
+  </scm>
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
-
   <dependencies>
-    <!--logger-->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>1.7.28</version>
-    </dependency>
-
     <!--oauth 1.0 and httpclient4-->
     <dependency>
       <groupId>oauth.signpost</groupId>
@@ -49,21 +42,29 @@
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
-
     <!--spring-->
     <dependency>
-      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>org.springframework.boot</groupId>
     </dependency>
-
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
-
-
+  <distributionManagement>
+    <repository>
+      <id>central</id>
+      <name>e1e743845d28-releases</name>
+      <url>http://localhost:8081/artifactory/libs-release</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>e0d864d13e32-snapshots</name>
+      <url>http://localhost:8081/artifactory/libs-snapshot-local</url>
+    </snapshotRepository>
+  </distributionManagement>
   <build>
     <plugins>
       <plugin>

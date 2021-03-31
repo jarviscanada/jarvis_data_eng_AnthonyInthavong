@@ -25,15 +25,9 @@ public class TwitterCLIApp {
   }
 
   public static void main(String[] args) {
-    // Get secrets from environment vars
-    String consumerKey = System.getenv("consumerKey");
-    String consumerSecret = System.getenv("consumerSecret");
-    String accessToken = System.getenv("accessToken");
-    String tokenSecret = System.getenv("tokenSecret");
 
     // Create components and chain dependency
-    HttpHelper httpHelper = new TwitterHttpHelper(consumerKey, consumerSecret, accessToken,
-        tokenSecret);
+    HttpHelper httpHelper = new TwitterHttpHelper();
     CrdDao dao = new TwitterDao(httpHelper);
     Service service = new TwitterService(dao);
     Controller controller = new TwitterController(service);
@@ -44,6 +38,7 @@ public class TwitterCLIApp {
   }
 
   public void run(String[] args) {
+    System.out.println("run");
     if (args.length == 0) {
       throw new IllegalArgumentException(USAGE);
     }

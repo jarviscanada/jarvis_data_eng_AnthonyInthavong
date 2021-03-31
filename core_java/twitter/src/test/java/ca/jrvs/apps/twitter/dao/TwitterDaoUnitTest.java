@@ -16,13 +16,12 @@ import ca.jrvs.apps.twitter.util.JsonUtil;
 import ca.jrvs.apps.twitter.util.TweetUtil;
 import java.io.IOException;
 import java.net.URLEncoder;
-import org.apache.log4j.BasicConfigurator;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,7 +43,7 @@ public class TwitterDaoUnitTest {
 
   @Before
   public void setUp() throws Exception{
-    BasicConfigurator.configure();
+
     tweetJsonStr = "{\n" +
         "  \"created_at\" : \"Thu Jun 04 01:46:18 +0000 2020\",\n" +
         "  \"id\" : 1268358385075961862,\n" +

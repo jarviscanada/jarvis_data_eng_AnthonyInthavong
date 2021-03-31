@@ -13,7 +13,6 @@ import ca.jrvs.apps.twitter.service.TwitterService;
 import ca.jrvs.apps.twitter.util.TweetUtil;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.log4j.BasicConfigurator;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,7 +34,6 @@ public class TwitterControllerUnitTest {
 
   @Before
   public void setUp() throws Exception {
-    BasicConfigurator.configure();
   }
 
   @Test

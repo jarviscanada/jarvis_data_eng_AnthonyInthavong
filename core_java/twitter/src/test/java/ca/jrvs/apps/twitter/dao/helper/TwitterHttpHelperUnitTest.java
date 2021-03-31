@@ -7,7 +7,7 @@ import java.net.URI;
 import java.net.URLEncoder;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
-import org.apache.log4j.BasicConfigurator;
+
 
 
 import org.junit.Before;
@@ -24,7 +24,7 @@ public class TwitterHttpHelperUnitTest {
 
   @Before
   public void setup() {
-    BasicConfigurator.configure();
+
     String consumerKey = System.getenv("consumerKey");
     String consumerSecret = System.getenv("consumerSecret");
     String accessToken = System.getenv("accessToken");

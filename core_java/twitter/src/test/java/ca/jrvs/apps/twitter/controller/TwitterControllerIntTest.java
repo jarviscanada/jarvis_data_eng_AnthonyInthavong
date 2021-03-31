@@ -1,18 +1,17 @@
 package ca.jrvs.apps.twitter.controller;
 
-import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.isNotNull;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import ca.jrvs.apps.twitter.dao.TwitterDao;
 import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.service.TwitterService;
-import ca.jrvs.apps.twitter.util.TweetUtil;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.log4j.BasicConfigurator;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -31,8 +30,8 @@ public class TwitterControllerIntTest {
   Tweet tweet;
 
   @Before
-  public void setUp() throws Exception {
-    BasicConfigurator.configure();
+  public void setUp() {
+
     String consumerKey = System.getenv("consumerKey");
     String consumerSecret = System.getenv("consumerSecret");
     String accessToken = System.getenv("accessToken");
