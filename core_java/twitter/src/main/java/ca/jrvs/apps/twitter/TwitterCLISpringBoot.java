@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackages = "ca.jrvs.apps.twitter")
 public class TwitterCLISprintBoot implements CommandLineRunner {
 
-  private TwitterCLIApp app;
+  private final TwitterCLIApp app;
 
   @Autowired
   public TwitterCLISprintBoot(TwitterCLIApp app) {
@@ -18,6 +18,7 @@ public class TwitterCLISprintBoot implements CommandLineRunner {
   }
 
   public static void main(String[] args) {
+
     SpringApplication app = new SpringApplication(TwitterCLISprintBoot.class);
 
     // Turn off web
@@ -26,7 +27,8 @@ public class TwitterCLISprintBoot implements CommandLineRunner {
   }
 
   @Override
-  public void run(String... args) throws Exception {
+  public void run(String... args) {
+    System.out.print("Hi");
     app.run(args);
   }
 }
