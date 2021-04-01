@@ -170,6 +170,8 @@ inthavo2/twitter "post|show|delete" "[options]"
 The application follows the MVC architecture. Models are POJO's transformed from JSON responses. The views are the JSON data retrieved from requests.
 
 ## UML diagram
+![UML diagram](./assets/Twitter.png)
+
 ###app/main
 TwitterCLI is the entry point of the java application. There are multiple variations to demonstrate different ways to manage dependency injection. 
 
