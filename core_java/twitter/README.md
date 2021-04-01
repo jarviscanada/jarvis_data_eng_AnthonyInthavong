@@ -17,7 +17,7 @@ docker pull inthavo2/twitter:latest
 # Quick Start
 
 ## App usage
-###post
+### post
 ```bash
 USAGE:
 TwitterApp "post" "tweet_text" "latitude:longitude"
@@ -49,7 +49,7 @@ Sample JSON output:
   "retweeted" : false
 }
 ```
-###show
+### show
 ```bash
 USAGE:
 TwitterApp "show" "tweet_id" "[field1,fields2]"
@@ -93,7 +93,7 @@ TwitterApp "show" "1276568976764686343" "id,text,coordinates"
 }
 ```
 
-###delete
+### delete
 ```bash
 USAGE: TwitterApp "delete" "[id1,id2,..]"
 
@@ -126,7 +126,7 @@ Sample JSON output:
 
 ## Installation
 ## Maven
-###1. Package jar file using maven
+### 1. Package jar file using maven
 ```
 mvn clean package -DskipTests
 ```
@@ -172,7 +172,7 @@ The application follows the MVC architecture. Models are POJO's transformed from
 ## UML diagram
 ![UML diagram](./assets/Twitter.png)
 
-###app/main
+### app/main
 TwitterCLI is the entry point of the java application. There are multiple variations to demonstrate different ways to manage dependency injection. 
 
 * `TwitterCLIApp`
@@ -182,9 +182,10 @@ TwitterCLI is the entry point of the java application. There are multiple variat
 
 SpringBoot is the current implementation, but they can be swapped interchangeably.
 
-###controller
+### controller
 The Controller object consumes the user input and calls the appropriate corresponding service method. The implementation is `TwitterController`. The interface is dependent on the `TwitterService`.
-###service
+
+### service
 The Service layer manages any business logic. The implementation is `TwitterService`. `TwitterService` manages
 * Validating tweets
     * The character length is less than 140 characters
@@ -194,16 +195,17 @@ More business logic can be added where appropriate.
 
 `TwitterService` is dependent on `TwitterDAO` and is used as a dependency in the `Controller` interface.
 
-###dao
+### dao
 Data Access Object manages data from external storage. In our case it only handles the data sent to and retrieved from the Twitter API. The implementation is `TwitterDAO`. This class is dependent on the `HttpHelper` and is used as a dependency in the `Service` interface.   
-###httpHelper
+
+### httpHelper
 Helper class to send `POST` and `GET` requests using `HTTP`. Added as a dependency to the `dao` class to handle data. Implementation is `TwitterHttpHelper`. Implementation uses the `HttpClient` to execute requests.
 
 
 ## Models
 Models are converted from JSON to POJO using the Jackson library. The main model is called `Tweet`. This model is built from a collection of other models. `Tweet` models are used as DTO to transfer data throughout the Java Application. Getter and Setter methods are implemented on POJO's to manipulate their data.
 
-###`Tweet`
+### `Tweet`
 Main model used to transfer information throughout the Java Application. Contains all the information needed to perform CRD operations. The JSON below is a simplified version of the typical response from the Twitter API. 
 
 More information can be found directly from the Twitter API documentation.
@@ -237,13 +239,16 @@ Sample Json
 * `favorited`: boolean if tweet is favorited by user
 * `retweeted`: boolean if tweet is retweeted by user
 
-###`Coordinates`
+### `Coordinates`
 Nested model of tweet. Specifies latitude and longitude of tweet.
-###`Entities`
+
+### `Entities`
 Container mentioning hashtags and user mentions associated with tweet
-###`Hashtag`
+
+### `Hashtag`
 Model representing a single Hashtag associated with tweet
-###`UserMention`
+
+### `UserMention`
 Model representing a user mention associated with tweet
 
 ## Spring
