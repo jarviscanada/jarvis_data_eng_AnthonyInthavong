@@ -1,71 +1,81 @@
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.3.RELEASE</version>
+    <relativePath />
+  </parent>
   <groupId>ca.jrvs.apps</groupId>
   <artifactId>twitter</artifactId>
-  <version>1.0-SNAPSHOT</version>
-
-  <dependencies>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>1.7.28</version>
-    </dependency>
-
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-inline</artifactId>
-      <version>3.7.7</version>
-    </dependency>
-
-    <dependency>
-      <groupId>oauth.signpost</groupId>
-      <artifactId>signpost-core</artifactId>
-      <version>2.1.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-web</artifactId>
-      <version>5.3.4</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.httpcomponents</groupId>
-      <artifactId>httpcore</artifactId>
-      <version>4.4.14</version>
-    </dependency>
-
-    <dependency>
-      <groupId>oauth.signpost</groupId>
-      <artifactId>signpost-commonshttp4</artifactId>
-      <version>2.1.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-annotations</artifactId>
-      <version>2.12.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.11.1</version>
-    </dependency>
-
-
-
-  </dependencies>
-
+  <version>1.2-SNAPSHOT</version>
+  <scm>
+    <connection>scm:git:git@github.com:jarvisgroup/jarvis_data_eng_edward.git</connection>
+    <url>scm:git:git@github.com:jarvisgroup/jarvis_data_eng_edward.git</url>
+    <developerConnection>scm:git:git@github.com:jarvisgroup/jarvis_data_eng_edward.git</developerConnection>
+    <tag>twitter-1.0</tag>
+  </scm>
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
+  <dependencies>
+    <!--oauth 1.0 and httpclient4-->
+    <dependency>
+      <groupId>oauth.signpost</groupId>
+      <artifactId>signpost-commonshttp4</artifactId>
+      <version>1.2.1.2</version>
+    </dependency>
+    <!--Jackson JSON-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+    </dependency>
+    <!--testing-->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!--spring-->
+    <dependency>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <distributionManagement>
+    <repository>
+      <id>central</id>
+      <name>e1e743845d28-releases</name>
+      <url>http://localhost:8081/artifactory/libs-release</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>e0d864d13e32-snapshots</name>
+      <url>http://localhost:8081/artifactory/libs-snapshot-local</url>
+    </snapshotRepository>
+  </distributionManagement>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>3.0.0-M1</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>
